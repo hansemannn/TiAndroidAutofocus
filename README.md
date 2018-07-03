@@ -17,11 +17,13 @@ var win = Ti.UI.createWindow({
     backgroundColor: 'white'
 });
 
-win.add(autofocus.createView());
-win.add(Ti.UI.createTextField({
+var textField = Ti.UI.createTextField({
     width: 100,
     value: 'I don't autofocus'
-}));
+});
+
+win.add(autofocus.createView());
+win.add(textField);
 
 win.open();
 ```
