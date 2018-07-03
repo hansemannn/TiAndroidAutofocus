@@ -19,7 +19,7 @@ var win = Ti.UI.createWindow({
 
 var textField = Ti.UI.createTextField({
     width: 100,
-    value: 'I don't autofocus'
+    value: 'I do not auto-focus'
 });
 
 win.add(autofocus.createView());
