@@ -1,7 +1,9 @@
-TiAndroidAutofocus
-==================
+# TiAndroidAutofocus
 
-Prevents TextFields in Android to autofocus
+Prevents TextFields in Android to auto-focus.
+
+> **NOTE**: When using Titanium SDK 7.3.0+, Android matches the iOS / Windws behavior and does not auto-focus
+the first text field when a window opens. See [TIMOB-24138](https://jira.appcelerator.org/browse/TIMOB-24138) for details!
 
 ### Usage
 Simply create a View using this module above the first TextField occurence to prevent autofocus.
@@ -9,21 +11,24 @@ That's it!
 
 **JS Usage**
 
+```js
+var autofocus = require('de.marcelpociot.autofocus');
+var win = Ti.UI.createWindow({
+    backgroundColor: 'white'
+});
 
-	var win = Ti.UI.createWindow({
-		backgroundColor:'white'
-	});
-	var autofocus = require('de.marcelpociot.autofocus');
-	win.add( autofocus.createView() );
+win.add(autofocus.createView());
+win.add(Ti.UI.createTextField({
+    width: 100,
+    value: 'I don't autofocus'
+}));
 
-	win.add( Ti.UI.createTextField({
-		width: 100,
-		value: "I don't autofocus"
-	}) );
-	win.open();
-	
+win.open();
+```
+
 **Alloy usage**
 
-	<View platform="android" module="de.marcelpociot.autofocus" />
-	<TextField value="No more ugly autofocus!" />
-	
+```xml
+<View platform="android" module="de.marcelpociot.autofocus" />
+<TextField value="No more ugly autofocus!" />
+```
